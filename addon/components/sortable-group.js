@@ -28,9 +28,15 @@ export default Component.extend({
   */
   items: computed({
     get() {
-      return a(); 
+      return a();
     },
-  }), 
+  }),
+
+  /**
+    @property enabled
+    @type Boolean
+  */
+  enabled: true,
 
   /**
     @method _getFirstItemPosition
