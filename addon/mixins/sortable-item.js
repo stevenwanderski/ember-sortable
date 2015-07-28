@@ -55,6 +55,12 @@ export default Mixin.create({
   isBusy: Ember.computed.or('isDragging', 'isDropping'),
 
   /**
+    @property isEnabled
+    @type Boolean
+  */
+  isEnabled: Ember.computed.alias('group.enabled'),
+
+  /**
     The frequency with which the group is informed
     that an update is required.
     @property updateInterval
@@ -189,6 +195,7 @@ export default Mixin.create({
     @method mouseDown
   */
   mouseDown(event) {
+    if (!this.get('isEnabled')) return;
     this._startDrag(event);
   },
 
@@ -196,6 +203,7 @@ export default Mixin.create({
     @method touchStart
   */
   touchStart(event) {
+    if (!this.get('isEnabled')) return;
     this._startDrag(event);
   },
 
